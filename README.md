@@ -10,8 +10,7 @@ Solutions to common interview problems with pattern-based indexing and reusable 
 ```
 ├── solutions/          # Problem implementations
 ├── templates/          # Reusable pattern templates
-├── PATTERNS.md         # Problems indexed by pattern
-└── theory/             # Quick reference materials
+└── PATTERNS.md         # Problems indexed by pattern
 ```
 
 ## Solution Format
