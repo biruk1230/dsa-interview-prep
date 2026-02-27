@@ -14,7 +14,7 @@ Problems grouped by pattern. Each pattern includes a brief description, template
 
 | Problem | Difficulty | Solution |
 |---------|------------|----------|
-| *No problems yet* | | |
+| Contains Duplicate | Easy | [contains_duplicate.py](solutions/contains_duplicate.py) |
 
 ---
 

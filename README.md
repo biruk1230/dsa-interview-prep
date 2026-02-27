@@ -128,8 +128,8 @@ Note: not all problems need multiple approaches - only when different solutions 
 
 ## Progress
 
-- Problems solved: 0
-- Patterns covered: 0/16
+- Problems solved: 2
+- Patterns covered: 2/16
 
 See [PATTERNS.md](PATTERNS.md) for all problems grouped by pattern.
 
