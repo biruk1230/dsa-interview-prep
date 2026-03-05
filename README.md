@@ -22,49 +22,7 @@ Each solution includes:
 - Working implementation with test cases
 - Multiple approaches when they offer distinct insights or handle different constraints
 
-**Example with single approach:**
-
-```python
-"""
-Problem: Two Sum
-Link: https://leetcode.com/problems/two-sum/
-Difficulty: Easy
-Pattern: Arrays & Hashing
-
-Problem Statement:
-Given an array of integers and a target, return indices of two numbers that sum to target.
-
-Key Insight:
-Trading space for time - a hash map gives O(1) complement lookup vs O(n) array scan.
-"""
-
-
-# Hash Map | Time: O(n) | Space: O(n)
-# Strategy: Store each number's index; check if the complement has been seen
-def two_sum(nums: list[int], target: int) -> list[int]:
-    """Store seen numbers and return indices when the complement is found."""
-    seen = {}
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in seen:
-            return [seen[complement], i]
-        seen[num] = i
-    return []
-
-
-if __name__ == "__main__":
-    test_cases = [
-        ([2, 7, 11, 15], 9, [0, 1]),
-        ([3, 2, 4], 6, [1, 2]),
-    ]
-
-    for nums, target, expected in test_cases:
-        assert two_sum(nums, target) == expected, f"Failed for {nums}, target={target}"
-
-    print("All tests passed")
-```
-
-**Example with multiple approaches:**
+**Example:**
 
 ```python
 """
@@ -74,20 +32,21 @@ Difficulty: Easy
 Pattern: Two Pointers
 
 Problem Statement:
-Determine if a string is a palindrome, considering only alphanumeric
-characters and ignoring case.
+A phrase is a palindrome if, after converting all uppercase letters into lowercase
+letters and removing all non-alphanumeric characters, it reads the same forward and
+backward. Given a string s, return true if it is a palindrome, or false otherwise.
 
 Approaches:
 1. Filter & Reverse: O(n) time, O(n) space
-2. (Optimal) Two Pointers: O(n) time, O(1) space
+2. Two Pointers: O(n) time, O(1) space
 
 Tradeoffs:
 - Approach 1: Most readable, but allocates a cleaned copy of the string
 - Approach 2: Space-efficient; compares in-place without preprocessing
 
 Key Insight:
-Two pointers from both ends, skipping non-alphanumeric characters,
-avoids allocating a cleaned copy of the string.
+In-place comparison with two pointers eliminates the need for string preprocessing,
+achieving O(1) space complexity while maintaining O(n) time.
 """
 
 
@@ -99,16 +58,21 @@ def is_palindrome_filter(s: str) -> bool:
     return cleaned == cleaned[::-1]
 
 
-# Approach 2: Two Pointers (Optimal) | Time: O(n) | Space: O(1)
+# Approach 2: Two Pointers | Time: O(n) | Space: O(1)
 # Strategy: Compare from both ends, skipping non-alphanumeric characters
-def is_palindrome(s: str) -> bool:
+def is_palindrome_two_pointers(s: str) -> bool:
     """Compare characters from both ends, skipping non-alphanumeric."""
     left, right = 0, len(s) - 1
     while left < right:
+        # Move left pointer to next alphanumeric character
         while left < right and not s[left].isalnum():
             left += 1
+        
+        # Move right pointer to previous alphanumeric character
         while left < right and not s[right].isalnum():
             right -= 1
+        
+        # Compare characters (case-insensitive)
         if s[left].lower() != s[right].lower():
             return False
         left += 1
@@ -118,25 +82,39 @@ def is_palindrome(s: str) -> bool:
 
 if __name__ == "__main__":
     test_cases = [
+        # Basic palindromes
         ("A man, a plan, a canal: Panama", True),
         ("race a car", False),
-        (" ", True),
+        
+        # Edge cases
+        (" ", True),          # empty after filtering
+        ("a", True),          # single character
+        ("ab", False),        # two different characters
+
+        # Numbers and special characters
+        ("0P", False),
+        ("a.b,c;c:b!a", True),
+        ("A1b2B1a", True),
+
+        # Case sensitivity
+        ("Aa", True),
+        ("Ab", False),
     ]
 
     for s, expected in test_cases:
         assert is_palindrome_filter(s) == expected, f"Filter failed for: '{s}'"
-        assert is_palindrome(s) == expected, f"Optimal failed for: '{s}'"
+        assert is_palindrome_two_pointers(s) == expected, f"Two pointers failed for: '{s}'"
 
     print("All tests passed")
 ```
 
-The canonical/optimal function uses the problem's snake_case name (`is_palindrome`). Other approaches get a suffix (`_filter`, `_brute`, `_dp`, `_recursive`, etc.).
+All functions use a descriptive suffix (`_brute`, `_sort`, `_filter`, `_counter`, `_early_exit`, `_two_pointers`, etc.). Boolean predicates use `is_*` or `has_*` as a prefix (e.g. `is_palindrome_filter`, `has_duplicate_early_exit`); other functions use the problem name as a prefix (e.g. `two_sum_brute`, `three_sum_two_pointers`).
 
 Note: not all problems need multiple approaches - only when different solutions offer distinct insights or handle different constraints.
 
 ## Progress
 
-- Problems solved: 2
+- Problems solved: 3
 - Patterns covered: 2/16
 
 See [PATTERNS.md](PATTERNS.md) for all problems grouped by pattern.
