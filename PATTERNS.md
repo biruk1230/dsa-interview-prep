@@ -15,6 +15,8 @@ Problems grouped by pattern. Each pattern includes a brief description, template
 | Problem | Difficulty | Solution |
 |---------|------------|----------|
 | Contains Duplicate | Easy | [contains_duplicate.py](solutions/contains_duplicate.py) |
+| Valid Anagram | Easy | [valid_anagram.py](solutions/valid_anagram.py) |
+| Two Sum | Easy | [two_sum.py](solutions/two_sum.py) |
 
 ---
 
