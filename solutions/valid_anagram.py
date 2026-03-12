@@ -45,8 +45,7 @@ from collections import Counter
 # Strategy: Sort both strings; anagrams always produce identical sorted sequences
 def is_anagram_sort(s: str, t: str) -> bool:
     """Sort both strings and compare - anagrams yield identical sorted output."""
-    if len(s) != len(t):
-        return False
+    if len(s) != len(t): return False
     return sorted(s) == sorted(t)
 
 
@@ -54,8 +53,7 @@ def is_anagram_sort(s: str, t: str) -> bool:
 # Strategy: Use a 26-element array indexed by char offset from 'a'
 def is_anagram_array(s: str, t: str) -> bool:
     """Count frequencies in a fixed 26-element array using char offsets from 'a'."""
-    if len(s) != len(t):
-        return False
+    if len(s) != len(t): return False
     count = [0] * 26 # One slot for each letter 'a'-'z'
     for i in range(len(s)):
         count[ord(s[i]) - ord('a')] += 1
@@ -67,8 +65,7 @@ def is_anagram_array(s: str, t: str) -> bool:
 # Strategy: Build frequency counters for both strings using Python's Counter and compare
 def is_anagram_counter(s: str, t: str) -> bool:
     """Compare character frequency counters built by Python's Counter."""
-    if len(s) != len(t):
-        return False
+    if len(s) != len(t): return False
     return Counter(s) == Counter(t)
 
 
@@ -76,8 +73,7 @@ def is_anagram_counter(s: str, t: str) -> bool:
 # Strategy: Count frequencies in two separate maps; compare them at the end
 def is_anagram_two_maps(s: str, t: str) -> bool:
     """Count frequencies in two separate hash maps and compare them."""
-    if len(s) != len(t):
-        return False
+    if len(s) != len(t): return False
     count_s, count_t = {}, {}
     for i in range(len(s)):
         count_s[s[i]] = 1 + count_s.get(s[i], 0)
@@ -89,8 +85,7 @@ def is_anagram_two_maps(s: str, t: str) -> bool:
 # Strategy: Increment counts for s, decrement for t in one pass; anagram if all values reach zero
 def is_anagram_one_map(s: str, t: str) -> bool:
     """Increment counts for s, decrement for t; anagram if all values reach zero."""
-    if len(s) != len(t):
-        return False
+    if len(s) != len(t): return False
     count = {}
     for cs, ct in zip(s, t):
         count[cs] = count.get(cs, 0) + 1
@@ -102,8 +97,7 @@ def is_anagram_one_map(s: str, t: str) -> bool:
 # Strategy: Build count from s; for each char in t, exit early if its count is already zero
 def is_anagram_early_exit(s: str, t: str) -> bool:
     """Build count from s; exit early if any char in t is absent or exhausted."""
-    if len(s) != len(t):
-        return False
+    if len(s) != len(t): return False
     count = {}
     for char in s:
         count[char] = count.get(char, 0) + 1
