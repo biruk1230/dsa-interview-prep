@@ -18,6 +18,7 @@ Problems grouped by pattern. Each pattern includes a brief description, template
 | Valid Anagram | Easy | [valid_anagram.py](solutions/valid_anagram.py) |
 | Two Sum | Easy | [two_sum.py](solutions/two_sum.py) |
 | Group Anagrams | Medium | [group_anagrams.py](solutions/group_anagrams.py) |
+| Top K Frequent Elements | Medium | [top_k_frequent_elements.py](solutions/top_k_frequent_elements.py) |
 
 ---
 
