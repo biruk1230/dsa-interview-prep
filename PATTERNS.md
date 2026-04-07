@@ -19,6 +19,7 @@ Problems grouped by pattern. Each pattern includes a brief description, template
 | Two Sum | Easy | [two_sum.py](solutions/two_sum.py) |
 | Group Anagrams | Medium | [group_anagrams.py](solutions/group_anagrams.py) |
 | Top K Frequent Elements | Medium | [top_k_frequent_elements.py](solutions/top_k_frequent_elements.py) |
+| Encode and Decode Strings | Medium | [encode_and_decode_strings.py](solutions/encode_and_decode_strings.py) |
 
 ---
 

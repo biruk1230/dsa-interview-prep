@@ -114,7 +114,7 @@ Note: not all problems need multiple approaches - only when different solutions 
 
 ## Progress
 
-- Problems solved: 6
+- Problems solved: 7
 - Patterns covered: 2/16
 
 See [PATTERNS.md](PATTERNS.md) for all problems grouped by pattern.
