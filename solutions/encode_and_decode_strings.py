@@ -68,7 +68,7 @@ def decode_escaped(s: str) -> list[str]:
 # Strategy: Prefix each string with its character count and '#', then slice exactly that many chars when decoding
 def encode_length_prefix(strs: list[str]) -> str:
     """Prefix each string with '<length>#'; no escaping needed."""
-    return ''.join(f'{len(s)}#{s}' for s in strs)
+    return ''.join([f'{len(s)}#{s}' for s in strs])
 
 
 def decode_length_prefix(s: str) -> list[str]:
